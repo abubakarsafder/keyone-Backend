@@ -39,7 +39,7 @@ class LeadController extends Controller
             return response()->json(
                 [
                     'status' => 'error',
-                    'messages' => ['type' => 'error', 'message' => $validator->errors()->all()[0]],
+                    'messages' => [['type' => 'error', 'message' => $validator->errors()->all()[0]]],
                     'data' => []
                 ],
                 400
@@ -51,7 +51,7 @@ class LeadController extends Controller
         return response()->json(
             [
                 'status' => 'success',
-                'messages' => [['type' => 'success', 'message' => 'Lead created successfully.']],
+                'messages' => [['type' => 'success', 'message' => 'Request submitted successfully.']],
                 'data' => ['lead' => $lead]
             ],
             201
@@ -124,7 +124,7 @@ class LeadController extends Controller
             return response()->json(
                 [
                     'status' => 'error',
-                    'messages' => [$validator->errors()],
+                    'messages' => [['type' => 'error', 'message' => $validator->errors()->all()[0]]],
                     'data' => []
                 ],
                 400
